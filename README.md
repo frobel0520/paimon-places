@@ -1,8 +1,10 @@
-# Paimon — 常去店家
+# paimon-places — 常去店家（已封存）
+
+> **2026-09-26 起封存。** 原 repo 名稱 `paimon` 改由新的 LINE 生活助手 [Paimon](https://github.com/frobel0520/paimon) 使用；「常去店家」會以 LINE 模組的形式搬過去。這個 repo 保留作為程式碼來源（營業時段判斷 `frontend/src/openStatus.ts`，以及 commit `b284348` 之前的吃什麼輪盤與飲食紀錄），不再更新。
 
 收藏常去的飲食店家，隨時查看「現在有沒有開」。資料來源：Google Places API (New)。
 
-線上版（GitHub Pages＋瀏覽器儲存模式）：https://frobel0520.github.io/paimon/
+線上版（GitHub Pages＋瀏覽器儲存模式）：https://frobel0520.github.io/paimon-places/ （改名前是 `/paimon/`；收藏存在同一個 `frobel0520.github.io` 網域的 localStorage，改網址不會遺失）
 
 - 以店名搜尋 Google 店家並收藏
 - 清單即時顯示 營業中／已打烊／幾點開門（含跨夜時段）、每週營業時間、Google 地圖連結
@@ -69,14 +71,14 @@ npm run dev
 ```powershell
 cd frontend
 $env:VITE_STORAGE_MODE="local"
-$env:VITE_BASE_PATH="/paimon/"
+$env:VITE_BASE_PATH="/paimon-places/"
 npm run build
 npx serve dist
 ```
 
 ## Harbor 整合
 
-`frontend/index.html` 載入 Harbor 維護腳本（`data-project="paimon"`，2026-09-15 起）：Harbor 開啟維護模式時顯示全螢幕維護畫面，有公告時顯示底部公告列；Harbor 連不上或逾時 800 ms 時頁面照常顯示。
+`frontend/index.html` 載入 Harbor 維護腳本（`data-project="paimon"`，2026-09-15 起；Harbor 專案代號建立後不可改，repo 改名後沿用 `paimon`）：Harbor 開啟維護模式時顯示全螢幕維護畫面，有公告時顯示底部公告列；Harbor 連不上或逾時 800 ms 時頁面照常顯示。
 
 ## 歷史
 
