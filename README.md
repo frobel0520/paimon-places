@@ -2,8 +2,11 @@
 
 收藏常去的飲食店家，隨時查看「現在有沒有開」。資料來源：Google Places API (New)。
 
+線上版（GitHub Pages＋瀏覽器儲存模式）：https://frobel0520.github.io/paimon/
+
 - 以店名搜尋 Google 店家並收藏
 - 清單即時顯示 營業中／已打烊／幾點開門（含跨夜時段）、每週營業時間、Google 地圖連結
+- 每頁 10 間、兩欄排列（左右各 5 間，手機也維持兩欄）；超過 10 間顯示頁碼，標題顯示總數
 - 營業時段快取在本地（SQLite 或瀏覽器 localStorage），「現在是否營業」由前端計算；
   只有新增店家、按「更新」、或快取超過 `PLACES_REFRESH_DAYS`（預設 7 天）才呼叫 Google，
   正常使用遠低於免費額度（Text Search Pro 5,000 次/月、Place Details Enterprise 1,000 次/月）
@@ -70,6 +73,14 @@ $env:VITE_BASE_PATH="/paimon/"
 npm run build
 npx serve dist
 ```
+
+## Harbor 整合
+
+`frontend/index.html` 載入 Harbor 維護腳本（`data-project="paimon"`，2026-09-15 起）：Harbor 開啟維護模式時顯示全螢幕維護畫面，有公告時顯示底部公告列；Harbor 連不上或逾時 800 ms 時頁面照常顯示。
+
+## 歷史
+
+2026-07-12 以前 paimon 是多模組 app（記事、吃什麼輪盤與飲食紀錄、個人檔案）。之後精簡成只做「常去店家」，舊模組的程式碼仍可從 commit `b284348` 之前的歷史取回。
 
 ## 技術棧
 
